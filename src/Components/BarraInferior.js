@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 import {BottomNavigation, Text, TextInput } from 'react-native-paper';
 
@@ -6,7 +6,7 @@ const HomeRoute = () => <Text>Home</Text>
 const AgendarRoute = () => <Text>Agendar</Text>
 
 
-class BarraInferior extends React.Component {
+class BarraInferior extends Component {
     
     state = {
         index: 0,
