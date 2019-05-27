@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "13176040312",
+    "firebase_url": "https://projetoada-d1872.firebaseio.com",
+    "project_id": "projetoada-d1872",
+    "storage_bucket": "projetoada-d1872.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13176040312:android:598802ced2959c97",
+        "android_client_info": {
+          "package_name": "com.ada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13176040312-50rld2dsisj7eh2trekjuuam98m2mbb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAySx62Ic9h8rfuk9hwUIhwg2BEICZbVEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13176040312-50rld2dsisj7eh2trekjuuam98m2mbb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
