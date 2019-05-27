@@ -2,19 +2,18 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 
-
-export default class App extends Component {
+class Cliente extends Component {
     render() {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>Welcome to React Native, Renato!</Text>
-          <Text style={styles.instructions}>To get started, edit App.js</Text>
-          
-        </View>
-      );
+        return(
+            <View style={styles.container}>
+                <Text style={styles.welcome}>Esta é a tela principal do Cliente</Text>
+            </View>
+        )
     }
 }
-  
+
+
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -29,3 +28,6 @@ const styles = StyleSheet.create({
     },
 });
   
+
+
+export default Cliente
