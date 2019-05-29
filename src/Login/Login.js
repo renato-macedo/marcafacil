@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import {Button, Text, TextInput, Provider as PaperProvider } from 'react-native-paper';
-import BarraInferior from '../Components/BarraInferior'
+//import BarraInferior from '../Components/BarraInferior'
 
 import firebase from 'react-native-firebase'
 
 
 
 class Login extends React.Component {
+    static navigationOptions = {
+        header: null
+    }
     state = {
         email: '',
         password: '',
@@ -19,10 +22,13 @@ class Login extends React.Component {
         const { email, password } = this.state;
 
         try {
-            firebase.auth().signInWithEmailAndPassword(email, password)
+            await firebase.auth().signInWithEmailAndPassword(email, password)
 
-            this.setState({ isAuthenticated: true })
-            console.log(user)
+            this.setState({ isAuthenticated: true },()=> {
+                this.props.navigation.navigate('Cliente')
+            })
+            
+
 
         }catch (err) {
             console.log(err)
@@ -31,64 +37,86 @@ class Login extends React.Component {
     
     render() {
         return(
-            <PaperProvider >
-                <View style={styles.container}>
-                    <Text style={styles.text}>Assistente de Agendamento</Text>
-                    <TextInput style={styles.fields}
-                        placeholder="Digite seu email"
-                        underlineColor="#6B52AE"
-                        value={this.state.email}
-                        onChangeText={email => this.setState({ email })} 
-                    />
-                    <TextInput style={styles.fields}
-                        placeholder="Senha"
-                        underlineColor="#6B52AE"
-                        value={this.state.password}
-                        onChangeText={password => this.setState({ password })} 
-                    />
+            <View style={styles.container}>
+            <View style={styles.imageContainer}>
+                <Image source={require('../../assets/img/spider.png')} styles ={styles.imageStyle}/>
+            </View>
+            <View style={{marginBottom: "5%"}} >
 
-                    <Button style={styles.button} mode="contained" onPress={this.login}>Entrar</Button>
+                <TextInput 
+                    style={styles.fields}
 
-                    { this.state.isAuthenticated ? <Text>Logado com sucesso</Text> : null }
-                </View>
+                    placeholder="Digite seu email"
+                    value={this.state.email}
+                    onChangeText={email => this.setState({ email })} />
+                <TextInput 
+                    style={styles.fields}
+                    value={this.state.password}
+                    placeholder="Digite sua senha" 
+                    onChangeText={password => this.setState({ password })} />
+
+            </View>
+            
+            <View style={styles.buttonContainer} placeholder="Digite sua senha" >
+                <Button style={styles.button} mode="contained" onPress={this.login}>Entrar</Button>
+                <Button style={styles.button} mode="contained" onPress={()=>this.props.navigation.navigate('EscolherTipo')}>Cadastro</Button>
+
+            </View>
+           
+            </View>       
+
+                   
+          
                 
-            </PaperProvider>
+        
             
         )
     }
 }
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: '#3F51B5',
-      
-      
+        //flexDirection: "column",
+        flex: 1, 
+        justifyContent: "center",
+        //alignItems: "center",
+        alignContent: 'center',
+        backgroundColor: "#effce0"
     },
+
+    imageContainer: {
+        
+        alignItems: "center",
+        justifyContent: "center"
+    },
+
+    imageStyle: {
+    }, 
+
     text: {
         fontSize: 32,
         color: "white",
-        alignSelf: "center",
+        // alignSelf: "center",
         textAlign: "center",
-        marginBottom: "5%"
+        marginBottom: "5%",
     },
+
     fields: {
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "white",
-       
-        alignSelf:"stretch",
-        marginBottom: 10
+        alignContent: 'center',
+        marginBottom: "5%",
+        backgroundColor: "#daf7bb"
+    },
+    buttonContainer: {
+        flexDirection: "row",
+        justifyContent: "space-around",
 
     },
     button: {
-      fontSize: 20,
-      justifyContent: "center",
-      alignItems: "center",
-      textAlign: 'center',
-      margin: 10,
-      alignSelf: "center",
+        borderWidth: 0,
+        width: "45%",
+        marginBottom: "2%",
+        tintColor: "red"
+
     },
 });
   

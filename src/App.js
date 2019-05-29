@@ -1,31 +1,11 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import * as React from 'react';
+import { BottomNavigation, Text } from 'react-native-paper';
 
+import Cliente from './Cliente/ClienteMain'
+import Agendar from './Cliente/Agendar'
 
+const App = () => (
+  <Agendar />
+)
 
-export default class App extends Component {
-    render() {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>Welcome to React Native, Renato!</Text>
-          <Text style={styles.instructions}>To get started, edit App.js</Text>
-          
-        </View>
-      );
-    }
-}
-  
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-    },
-});
-  
+export default App
