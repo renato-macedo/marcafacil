@@ -45,11 +45,12 @@ class Login extends Component {
 
                 <TextInput 
                     style={styles.fields}
-
+                    keyboardType="email-address"
                     placeholder="Digite seu email"
                     value={this.state.email}
                     onChangeText={email => this.setState({ email })} />
                 <TextInput 
+                    secureTextEntry={true}
                     style={styles.fields}
                     value={this.state.password}
                     placeholder="Digite sua senha" 

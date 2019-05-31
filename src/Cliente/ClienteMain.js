@@ -7,7 +7,9 @@ import {BottomNavigation, Text, TextInput } from 'react-native-paper';
 
 export default class Cliente extends Component {
     static navigationOptions = {
-        header: null
+        title: "Home",
+        tabBarIcon: "home",
+        tabBarLabel: "Home"
     }
     render() {
         return(
