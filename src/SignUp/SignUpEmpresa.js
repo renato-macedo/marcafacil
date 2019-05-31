@@ -1,16 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 
-class SignUp extends Component {
-    render() {
-        return(
+const SignUpEmpresa = () =>  (
             <View style={styles.container}>
-                <Text style={styles.welcome}>Esta é a tela de Sign Up</Text>
+                <Text style={styles.welcome}>Esta é a tela de Sign Up de Empresas</Text>
             </View>
         )
-    }
-}
+
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -25,5 +23,4 @@ const styles = StyleSheet.create({
     },
 });
   
-
-export default SignUp
+export default SignUpEmpresa

@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 
 import {View, StyleSheet, Image} from 'react-native';
-import {Button, Text, TextInput, Provider as PaperProvider } from 'react-native-paper';
-//import BarraInferior from '../Components/BarraInferior'
+import {Button, TextInput} from 'react-native-paper';
+
 
 import firebase from 'react-native-firebase'
 
 
 
-class Login extends React.Component {
+class Login extends Component {
     static navigationOptions = {
         header: null
     }
@@ -59,7 +59,7 @@ class Login extends React.Component {
             
             <View style={styles.buttonContainer} placeholder="Digite sua senha" >
                 <Button style={styles.button} mode="contained" onPress={this.login}>Entrar</Button>
-                <Button style={styles.button} mode="contained" onPress={()=>this.props.navigation.navigate('EscolherTipo')}>Cadastro</Button>
+                <Button style={styles.button} mode="contained" onPress={()=>this.props.navigation.navigate("EscolherTipo")}>Cadastro</Button>
 
             </View>
            
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         width: "45%",
         marginBottom: "2%",
-        tintColor: "red"
 
     },
 });

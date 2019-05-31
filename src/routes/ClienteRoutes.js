@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { BottomNavigation} from 'react-native-paper';
 
-import Cliente from './ClienteMain'
-import Agendar from './Agendar'
+import Cliente from '../Cliente/ClienteMain'
+import Agendar from '../Cliente/Agendar'
 
 const Principal = () => <Cliente />;
 
