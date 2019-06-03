@@ -6,11 +6,12 @@ import { createSwitchNavigator, createStackNavigator, createAppContainer } from 
 import Login from '../Login/Login'
 import CadastroRoutes from './CadastroRoutes'
 import ClienteRoutes from './ClienteRoutes'
-import MaterialBottom from './MaterialBottom'
+import EmpresaRoutes from './EmpresaRoutes'
 
 
 
-const AppStack = createStackNavigator({ Cliente: MaterialBottom },{headerMode: "none"})
+
+const AppStack = createSwitchNavigator({ Cliente: ClienteRoutes, Empresa: EmpresaRoutes }) // ,{headerMode: "none"}
 const AuthStack = createStackNavigator({ Login, CadastroRoutes });
 
 

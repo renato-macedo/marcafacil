@@ -1,48 +1,82 @@
 import React, {Component} from 'react';
 
 import {View, StyleSheet, Image} from 'react-native';
-import {Button, TextInput} from 'react-native-paper';
+import {Button, TextInput, Text, } from 'react-native-paper';
 
 
 import firebase from 'react-native-firebase'
 
-
-
+const auth = firebase.auth()
+const db = firebase.firestore()
 class Login extends Component {
     static navigationOptions = {
         header: null
     }
     state = {
-        email: '',
-        password: '',
+        email: 'softwell@contato.com',
+        password: '123456',
         isAuthenticated: false,
     }
 
-    login = async () => {
+    login =  () => {
         const { email, password } = this.state;
+        if(email===' ' || password === '') return
+        //try {
+            auth.signInWithEmailAndPassword(email, password).then(user => {
+                console.log(user)
+                const userId = user.user.uid
+                console.log(userId)
+                db.collection("clientes").doc(userId).get().then(docCliente => {
+                    //console.log(doc.data())
+                    if(docCliente.exists) {
+                        console.log("Document Cliente :", docCliente.data())
+                        this.setState({ isAuthenticated: true },()=> {
+                            this.props.navigation.navigate('Cliente')
+                            console.log("Indo para cliente")
+                        })
+                    }else {
+                        db.collection("empresas").doc(userId).get().then(docEmpresa => {
+                            if(docEmpresa.exists) {
+                                console.log("Document Empresa:", docEmpresa.data())
+                                this.setState({ isAuthenticated: true },()=> {
+                                    this.props.navigation.navigate('Empresa')
+                                    console.log("Indo para empresa")
+                                })
+                            }else {
+                                console.log("No such document!")
+                            }
+                        })
+                        
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error)
+                })
 
-        try {
-            await firebase.auth().signInWithEmailAndPassword(email, password)
-
-            this.setState({ isAuthenticated: true },()=> {
-                this.props.navigation.navigate('Cliente')
+            }).catch(err => {
+                console.log(`Error ${err.code}: ${err.message}`)
             })
+           
+
             
 
 
-        }catch (err) {
-            console.log(err)
-        }
+
+            
+
+
+        // }catch (err) {
+        //     console.log(err)
+        // }
     }
     
     render() {
         return(
             <View style={styles.container}>
             <View style={styles.imageContainer}>
-                <Image source={require('../../assets/img/spider.png')} styles ={styles.imageStyle}/>
+                <Image source={require('../../assets/img/logo.png')} styles ={styles.imageStyle}/>
             </View>
             <View style={{marginBottom: "5%"}} >
-
+                <Text style={styles.titulo}>Marca Fácil</Text>
                 <TextInput 
                     style={styles.fields}
                     keyboardType="email-address"
@@ -93,12 +127,13 @@ const styles = StyleSheet.create({
     imageStyle: {
     }, 
 
-    text: {
+    titulo: {
         fontSize: 32,
-        color: "white",
+        color: "black",
         // alignSelf: "center",
         textAlign: "center",
         marginBottom: "5%",
+        fontFamily: "Impact" 
     },
 
     fields: {

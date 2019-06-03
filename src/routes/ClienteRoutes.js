@@ -1,39 +1,28 @@
-import React, {Component} from 'react';
-import { BottomNavigation} from 'react-native-paper';
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs"
+import React from 'react'
 
 import Cliente from '../Cliente/ClienteMain'
 import Agendar from '../Cliente/Agendar'
 
-const Principal = () => <Cliente />;
-
-const Ag = () => <Agendar />;
 
 
 
-export default class ClienteRoutes extends Component {
-  state = {
-    index: 0,
-    routes: [
-      { key: 'principal', title: 'Home', icon: 'home' },
-      { key: 'agendar', title: 'Agendar', icon: 'schedule' },
-      ,
-    ],
-  };
+const Cl = () => <Cliente />
+const Ag = () => <Agendar />
 
-  _handleIndexChange = index => this.setState({ index });
 
-  _renderScene = BottomNavigation.SceneMap({
-    principal: Principal,
-    agendar: Ag,
-  });
+const BottomNavigator = createMaterialBottomTabNavigator({
+    Cliente: {screen: Cl, navigationOptions: {
+        tabBarLabel: "Home",
+    }},
+    Agenda: {screen: Ag, navigationOptions: {
+        tabBarLabel: "Agendar"
+    }}
+}, {
+    initialRouteName: "Cliente",
+    activeColor: '#f0edf6',
+    inactiveColor: '#3e2465',
+    barStyle: { backgroundColor: '#80c635', alignContent: "center"},
+})
 
-  render() {
-    return (
-      <BottomNavigation
-        navigationState={this.state}
-        onIndexChange={this._handleIndexChange}
-        renderScene={this._renderScene}
-      />
-    );
-  }
-}
+export default BottomNavigator

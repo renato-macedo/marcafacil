@@ -1,16 +1,24 @@
-import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {Component} from 'react'
+
+import {StyleSheet, View} from 'react-native'
 import {BottomNavigation, Text, TextInput } from 'react-native-paper';
 
-class Empresa extends Component {
+
+class Agendamentos extends Component {
     render() {
-        return(
+        return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>Esta é a tela principal da Empresa</Text>
+                <Text style={styles.welcome}>Você não tem nenhum agendamento</Text>
             </View>
         )
     }
 }
+
+
+
+
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -27,4 +35,4 @@ const styles = StyleSheet.create({
 });
   
 
-export default Empresa
+export default Agendamentos
