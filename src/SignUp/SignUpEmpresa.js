@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import FormEmpresa from './formEmpresa'
 
-
-const SignUpEmpresa = () =>  (
+const SignUpEmpresa = (props) =>  (
             <View style={styles.container}>
                 <Text style={styles.welcome}>Esta é a tela de Sign Up de Empresas</Text>
+                <FormEmpresa navigation={props.navigation}/>
             </View>
-        )
+)
 
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
       backgroundColor: '#F5FCFF',
+
     },
     welcome: {
       fontSize: 20,
@@ -22,5 +22,7 @@ const styles = StyleSheet.create({
       margin: 10,
     },
 });
+
+
   
 export default SignUpEmpresa

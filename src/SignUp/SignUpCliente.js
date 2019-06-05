@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet,View} from 'react-native';
+import {Text, TextInput, Button} from 'react-native-paper'
+import  FormCliente from './formCliente'
 
 
-const SignUpCliente = () =>  (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Esta é a tela de Sign Up de Clientes</Text>
-            </View>
-        )
+class SignUpCliente extends Component {
+
+  
+  render() {
+    return (
+      <View style={styles.container}>
+          <Text style={styles.welcome}>Esta é a tela de Sign Up de Clientes</Text>
+          <FormCliente navigation={this.props.navigation} />
+      </View>
+  )
+  }
+}  
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
       backgroundColor: '#F5FCFF',
+
     },
     welcome: {
       fontSize: 20,
