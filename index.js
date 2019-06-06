@@ -9,6 +9,7 @@ import {name as appName} from './app.json';
 import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 
 import StartRoute from './src/routes/routes'
+import StatusBar from './src/Components/StatusBar'
 
 
 
@@ -19,7 +20,7 @@ const theme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primary: "#80c635",
+        primary: "#C5E1A5",
         accent: "tomato",
 
         

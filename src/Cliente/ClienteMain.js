@@ -1,22 +1,29 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, FlatList} from 'react-native';
 
-import {BottomNavigation, Text, TextInput } from 'react-native-paper';
+import {Text, TextInput } from 'react-native-paper';
 
+import Agendamento from '../Components/Agendamento'
 
-
+const agendamentos = [1, 2, 3]
 export default class Cliente extends Component {
-    static navigationOptions = {
-        title: "Home",
-        tabBarIcon: "home",
-        tabBarLabel: "Home"
-    }
+    // static navigationOptions = {
+    //     title: "Home",
+    //     tabBarIcon: "home",
+    //     tabBarLabel: "Home"
+    // }
+    renderItem = ({item}) => (
+        <Agendamento key={item}/>
+    )
     render() {
         return(
             <View style={styles.container}>
                
-                <Text style={styles.welcome}>Você não tem nenhum agendamento</Text>
-                
+                {/* <Text style={styles.welcome}>Você não tem nenhum agendamento</Text> */}
+                <FlatList
+                    data={agendamentos}
+                    keyExtractor={item => item}
+                    renderItem={this.renderItem} />
             </View>
 
         )
@@ -29,8 +36,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+
+      backgroundColor: '#F1F8E9',
     },
     welcome: {
       fontSize: 20,

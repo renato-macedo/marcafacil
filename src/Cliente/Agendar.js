@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-import { Text, Button } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import Pesquisa from '../Components/SearchBar'
 class Agendar extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <View style={styles.pesquisa}>
+                
                  <Pesquisa  />
 
-                </View>
+                
 
                 <View style={styles.welcome}>
                     <Text >Esta é a tela de Agendamento</Text>
@@ -26,16 +26,9 @@ class Agendar extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      //justifyContent: "space-around",
-      //alignItems: 'stretch',
-      backgroundColor: '#F5FCFF',
-    },
-    pesquisa: {
-        marginTop:"10%",
-        alignItems: "baseline",
-        alignSelf: "center",
-        width: "90%",  
-
+      justifyContent: "center",
+      alignItems: "center", 
+      backgroundColor: '#F1F8E9',
     },
     welcome: {
         //alignContent: "center", 

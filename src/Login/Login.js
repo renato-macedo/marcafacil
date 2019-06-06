@@ -13,7 +13,7 @@ class Login extends Component {
         header: null
     }
     state = {
-        email: 'softwell@contato.com',
+        email: 'renato.macedo@softwell.com.br',
         password: '123456',
         isAuthenticated: false,
     }
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         //alignItems: "center",
         alignContent: 'center',
-        backgroundColor: "#effce0"
+        backgroundColor: "#F1F8E9"
     },
 
     imageContainer: {
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignContent: 'center',
         marginBottom: "5%",
-        backgroundColor: "#daf7bb"
+        backgroundColor: "#F1F8E9"
     },
     buttonContainer: {
         flexDirection: "row",

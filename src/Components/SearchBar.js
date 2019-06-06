@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Searchbar, Banner, Button} from 'react-native-paper';
+import {Searchbar, Button} from 'react-native-paper';
 import {  View, StyleSheet, Image } from 'react-native'
 
 
@@ -17,14 +17,14 @@ class Pesquisa extends Component {
   render() {
     const { firstQuery } = this.state;
     return (
-       <View style={{alignItems: "stretch"}}>
-        <Searchbar
+       <View style={styles.container}>
+        <Searchbar style={styles.searchbar}
            placeholder="Buscar um serviço"
            onChangeText={this.pesquisar}
            value={firstQuery}
        />
        <Button style ={styles.button} mode="contained" onPress={() => console.log(`Pesquisando: ${this.state.firstQuery} `)}>
-       <Image source={require('../../assets/img/search-icon-white.png')} style={{width: 10, height: 10}} />
+       Buscar
    </Button>
    </View>
     )
@@ -32,11 +32,30 @@ class Pesquisa extends Component {
 }
 
 const styles = StyleSheet.create({
-    button: {
-        borderRadius: 360,
-        alignSelf: "center",
-        padding: 0,
-    }
+  container: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
+  searchbar: {
+    width: "90%",
+    backgroundColor: "#C5E1A5"
+  },
+
+  button: {
+    borderRadius: 10,
+
+    padding: 0,
+   
+    width: "90%",
+    marginTop: "5%"
+  },
+  image: {
+    flex:1,
+    height: 30,
+    width: 30,
+    margin: 0
+  }
 })
 
 export default Pesquisa
