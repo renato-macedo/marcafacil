@@ -13,7 +13,7 @@ class Login extends Component {
         header: null
     }
     state = {
-        email: 'renato.macedo@softwell.com.br',
+        email: 'facebook@contato.com',
         password: '123456',
         isAuthenticated: false,
     }
@@ -55,19 +55,8 @@ class Login extends Component {
             }).catch(err => {
                 console.log(`Error ${err.code}: ${err.message}`)
             })
-           
-
-            
-
-
-
-            
-
-
-        // }catch (err) {
-        //     console.log(err)
-        // }
     }
+    
     
     render() {
         return(
