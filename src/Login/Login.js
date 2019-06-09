@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, AsyncStorage} from 'react-native';
 import {Button, TextInput, Text, } from 'react-native-paper';
 
+import { LoginComEmailESenha } from '../services/FazerLoginComEmailESenha'
+// import firebase from 'react-native-firebase'
 
-import firebase from 'react-native-firebase'
-
-const auth = firebase.auth()
-const db = firebase.firestore()
+// const auth = firebase.auth()
+// const db = firebase.firestore()
 class Login extends Component {
     static navigationOptions = {
         header: null
@@ -18,43 +18,33 @@ class Login extends Component {
         isAuthenticated: false,
     }
 
-    login =  () => {
+    storeUserIdETipo = async (userId, tipo) => {
+        try {
+          await AsyncStorage.setItem("userId", userId);
+          await AsyncStorage.setItem("tipo", tipo);
+        } catch (error) {
+          // Error saving data
+        }
+    }
+
+    login = async () => {
         const { email, password } = this.state;
         if(email===' ' || password === '') return
-        //try {
-            auth.signInWithEmailAndPassword(email, password).then(user => {
-                console.log(user)
-                const userId = user.user.uid
-                console.log(userId)
-                db.collection("clientes").doc(userId).get().then(docCliente => {
-                    //console.log(doc.data())
-                    if(docCliente.exists) {
-                        console.log("Document Cliente :", docCliente.data())
-                        this.setState({ isAuthenticated: true },()=> {
-                            this.props.navigation.navigate('Cliente')
-                            console.log("Indo para cliente")
-                        })
-                    }else {
-                        db.collection("empresas").doc(userId).get().then(docEmpresa => {
-                            if(docEmpresa.exists) {
-                                console.log("Document Empresa:", docEmpresa.data())
-                                this.setState({ isAuthenticated: true },()=> {
-                                    this.props.navigation.navigate('Empresa')
-                                    console.log("Indo para empresa")
-                                })
-                            }else {
-                                console.log("No such document!")
-                            }
-                        })
-                        
-                    }
-                }).catch(function(error) {
-                    console.log("Error getting document:", error)
-                })
+        const UserInfo = await LoginComEmailESenha(email, password)
+        console.log(UserInfo)
+        this.setState({ isAuthenticated: true },()=> {
+            
+            this.storeUserIdETipo(UserInfo.userId, UserInfo.tipo)
+            if(UserInfo.tipo === "Cliente") {
+                this.props.navigation.navigate("Cliente")
+            } else {
+                this.props.navigation.navigate("Empresa")
+            }
+            console.log("Userid salvo",UserInfo.userId )
+            //this.props.navigation.navigate("DefinirRota")
+            console.log("Indo para " + UserInfo.tipo)
+        })
 
-            }).catch(err => {
-                console.log(`Error ${err.code}: ${err.message}`)
-            })
     }
     
     

@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {BottomNavigation, Text, TextInput } from 'react-native-paper';
+import {StyleSheet, View, AsyncStorage} from 'react-native';
+import {Button, Text, TextInput } from 'react-native-paper';
 
 class Empresa extends Component {
+    deslogar = async () => {
+        await AsyncStorage.clear();
+        this.props.navigation.navigate('DefinirRota');
+    }
+    
     render() {
         return(
             <View style={styles.container}>
                 <Text style={styles.welcome}>Esta é a tela principal da Empresa</Text>
+                {/* <Button onPress={this.deslogar}>Deslogar</Button> */}
             </View>
         )
     }
