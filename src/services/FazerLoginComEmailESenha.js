@@ -19,7 +19,7 @@ export async function LoginComEmailESenha(email, password) {
     try {
         UserInfo.tipo =  await buscarTipoDoUsuario(UserInfo.userId)
         console.log("AAA", UserInfo)
-    } catch (error) {
+    } catch (err) {
         console.log(`Error ${err.code}: ${err.message}`)
     }
 

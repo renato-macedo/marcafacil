@@ -1,26 +1,26 @@
 import React, {Component} from 'react'
 
-import {StyleSheet,TouchableOpacity} from 'react-native'
-import {Text, List } from 'react-native-paper';
+import {StyleSheet,View } from 'react-native'
+import {BottomNavigation, Text, List } from 'react-native-paper';
 
 
 
 
 
-export default class DataRow extends Component {
+export default class HorarioRow extends Component {
     
     getData = () =>{
         console.log(this.props.data)
     }
     render() {
         return (
-        <TouchableOpacity style={styles.row} onPress={()=> this.props.navigation.navigate("Horarios",{data: this.props.data, userId: this.props.userId})}>
+            <View style={styles.view}>
             <List.Item
-                title={this.props.data}
+                title={this.props.horario}
                 description="Item description"
-                left={props => <List.Icon  icon="insert-invitation" />}
+                left={props => <List.Icon  icon="access-time" />}
                 />
-          </TouchableOpacity>
+            </View>
 
         )
     }
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
     },
     view: {
-        backgroundColor: "black",
+
     },
     button: {
         width: "20%",

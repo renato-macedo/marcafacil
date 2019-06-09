@@ -1,53 +1,107 @@
 import React, {Component} from 'react'
 
-import {StyleSheet, View, FlatList} from 'react-native'
-import {BottomNavigation, Text, TextInput, Appbar } from 'react-native-paper';
+import {StyleSheet, View, FlatList, AsyncStorage} from 'react-native'
+import {Text, Appbar, FAB } from 'react-native-paper';
+import DateTimePicker from "react-native-modal-datetime-picker";
 
-import TimePicker from '../Components/EscolherHora'
-import DatePicker from '../Components/EscolherData'
+
 import DataRow from '../Components/DataRow'
 
-import {ObterDatas} from '../services/ManipularDatas'
+import {ObterDatas, CriarColecaoDeHorariosEmEmpresa } from '../services/ManipularDatas'
+import { yyyymmdd } from "../Auxiliar/yyyymmdd";
 
 
 
 
-//const datas = ["2019-06-23", "2019-06-22"]
+//const dts = ["2019-06-23", "2019-06-22","2019-06-23", "2019-06-22", "2019-06-23", "2019-06-22", "2019-06-23", "2019-06-22", "2019-06-23", "2019-06-22", "2019-06-23", "2019-06-22"]
 class Agendamentos extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            datas: []
-        }
     }
 
-    componentDidMount() {
-        let datas = ObterDatas("BFbZnoxwMscbCWTBt8Ziz39EPbQ2")
-        console.log(datas)
-        this.setState({datas: datas})
+    state = {
+        datas: [],
+        isDateTimePickerVisible: false,
+        userId: ''
     }
 
-    renderItem = ({item}) => (
-        <DataRow key={item} data={item}/>
-    )
     
+    renderHeader = () => {
+        return (
+            <Appbar>
+                <Appbar.Action icon="add-circle-outline" onPress={() => this.showDatePicker} />
+            </Appbar>
+        )
+    };
 
-
-    loadDatas = ()=>{
+    async componentDidMount() {
+        const userId = await AsyncStorage.getItem("userId")
+        ObterDatas(userId).then((datas) => {
+            this.setState({datas: datas}, () => {
+                console.log(this.state.datas)
+            })
+        })
+        this.setState({userId})
 
     }
+
+    //------FlatList----------
+    renderItem = ({item}) => (
+        <DataRow key={item} navigation = {this.props.navigation} userId ={this.state.userId} data={item}/>
+    )
+
+
+    //-------DatePicker---------
+    showDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: true });
+    };
+    
+    hideDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: false });
+    };
+    
+    handleDatePicked = async (date) => {
+        date = yyyymmdd(date)
+        console.log(date)
+        console.log(this.state.userId)
+        await CriarColecaoDeHorariosEmEmpresa(this.state.userId,date)
+        
+        ObterDatas(this.state.userId).then((datas) => {
+            this.setState({datas: datas}, () => {
+                console.log("Estado das datas",this.state.datas)
+            })
+        })
+        console.log("A date has been picked:", date);
+        this.hideDateTimePicker();
+
+    };
     
     render() {
         return (
-            <View>
+
+            <View style={styles.container}>
+                <Appbar>
+                    <Appbar.Content title={"Marca Fácil"} />
+                </Appbar>
                 
                 <FlatList
                     data={this.state.datas}
                     keyExtractor={item=> item}
-                    renderItem={this.renderItem} />
-                    
+                    renderItem={this.renderItem} 
+                />
+                <>
+                <DateTimePicker
+                    mode="date"
+                    isVisible={this.state.isDateTimePickerVisible}
+                    onConfirm={this.handleDatePicked}
+                    onCancel={this.hideDateTimePicker}
+                    minimumDate={new Date()}
+                />
+                </>
+                    <FAB style={styles.fab} onPress={this.showDateTimePicker} icon="add" />
             </View>
+  
+ 
         )
     }
 }
@@ -61,15 +115,21 @@ class Agendamentos extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+      backgroundColor: "#FBFFF1"
+
     },
     welcome: {
       fontSize: 20,
       textAlign: 'center',
       margin: 10,
     },
+    fab: {
+        //backgroundColor: "blue",
+        position: 'absolute',
+        margin: 16,
+        right: 0,
+        bottom: 0,
+    }
 });
   
 

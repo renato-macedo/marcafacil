@@ -21,17 +21,18 @@ export default class DatePickerTester extends Component {
   };
 
   handleDatePicked = date => {
+    console.log(date)
     date = yyyymmdd(date)
-    console.log("A date has been picked:w", date);
+    console.log("A date has been picked:", date);
     this.hideDateTimePicker();
   };
 
   render() {
     return (
       <>
-        <Button mode= "contained" onPress={this.showDateTimePicker}>Definir Data</Button>
+        <Button onPress={this.showDateTimePicker}>AA</Button>
         <DateTimePicker
-            mode="datetime"
+          mode="date"
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this.handleDatePicked}
           onCancel={this.hideDateTimePicker}
