@@ -5,21 +5,23 @@ import { StyleSheet, View } from 'react-native'
 
 const  EmpresaCard = (props) => { 
 
-    const { nome, endereco } = props.empresa
+    const { firstName, endereco, telefone } = props.empresa
+    console.log(props.empresa)
     return(
         <Card style={styles.card}>
             
             <Card.Content>
             <View style={styles.titlecontainer}>
-                <Title style={styles.title}>{nome}</Title>
+                <Title style={styles.title}>{firstName}</Title>
             </View>
             
 
             <Paragraph>{endereco}</Paragraph>
+            <Paragraph>{telefone}</Paragraph>
             </Card.Content>
             {/* <Card.Cover source={{ uri: 'https://picsum.photos/700' }} /> */}
             <Card.Actions style={styles.actions}>
-            <Button style={styles.detalhes}>Detalhes</Button>
+            <Button icon="book" style={styles.detalhes} onPress={() => console.log(`Realizando agendamento com ${firstName}`)} >Agendar</Button>
             </Card.Actions>
         </Card>
     );
@@ -53,6 +55,9 @@ const styles = StyleSheet.create({
         padding: 5,
         borderRadius: 10
     },
+    detalhes: {
+        backgroundColor: "green"
+    }
 
 })
 

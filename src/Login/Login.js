@@ -73,10 +73,10 @@ class Login extends Component {
             
             <View style={styles.buttonContainer} placeholder="Digite sua senha" >
                 <Button style={styles.button} mode="contained" onPress={this.login}>Entrar</Button>
-                <Button style={styles.button} mode="contained" onPress={()=>this.props.navigation.navigate("EscolherTipo")}>Cadastro</Button>
+                <Button style={styles.button} mode="contained" onPress={()=>this.props.navigation.navigate("EscolherTipo")}>Cadastrar</Button>
 
             </View>
-           
+            <Button mode="text"  style={styles.esqueceuSenha}>Esqueceu sua senha?</Button>
             </View>       
 
                    
@@ -132,6 +132,9 @@ const styles = StyleSheet.create({
         marginBottom: "2%",
 
     },
+    esqueceuSenha: {
+        fontSize: 8
+    }
 });
   
 

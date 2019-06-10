@@ -3,22 +3,29 @@ import {StyleSheet, View, FlatList} from 'react-native';
 import {Searchbar, Button} from 'react-native-paper';
 
 import EmpresaCard from '../Components/EmpresaCard'
-
+import {buscarEmpresa} from '../services/busca'
 
 class Agendar extends Component {
     state = {
         firstQuery: '',
-        encontrados: [{nome: "Facebook", endereco: "Menlo Park"}, {nome: "Google", endereco: "Av. Brg. Faria Lima, 3477"}]
+        encontrados: []
     };
     
-    pesquisar = (query) => {
-        this.setState({ firstQuery: query },()=> {
-            console.log(this.state.firstQuery)
-        })
+    definirPesquisa = (query) => {
+        this.setState({ firstQuery: query })
+    }
+
+
+    buscar = async () => {
+        console.log(`Pesquisando: ${this.state.firstQuery} `)
+        const dados = await buscarEmpresa(this.state.firstQuery)
+        console.log(dados)
+        this.setState({encontrados: dados})
+
     }
 
     renderItem = ({item}) => (
-        <EmpresaCard key={item.nome} empresa={item} />
+        <EmpresaCard key={item.empresaId} empresa={item.dados} />
     )
 
     render() {
@@ -28,10 +35,10 @@ class Agendar extends Component {
             <View style={styles.header}>
                 <Searchbar style={styles.searchbar} inputStyle={styles.searchInput}
                     placeholder="Busque por pessoas ou empresas..."
-                    onChangeText={this.pesquisar}
+                    onChangeText={this.definirPesquisa}
                     value={firstQuery}
                 />
-                <Button style ={styles.button} mode="contained" onPress={() => console.log(`Pesquisando: ${this.state.firstQuery} `)}>
+                <Button style ={styles.button} mode="contained" onPress={this.buscar}>
                     Buscar
                 </Button>
             </View>

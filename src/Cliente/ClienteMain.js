@@ -9,7 +9,8 @@ import Agendamento from '../Components/Agendamento'
 const agendamentos = [
     {empresa: "Márcia Financeira ME", data: "26/06/2019", hora:"14:00", status: "Aguardando", endereco:"Praça Jaime Antas de Abreu, 554"}, 
     {empresa: "João Doe", data: "30/06/2019", hora:"09:00",  status: "Confirmado", endereco:"Rua Silveira Bueno, 728"}, 
-    {empresa: "Marina e Filipe Doces & Salgados ME", data: "14/06/2019", hora:"10:00", status: "Confirmado", endereco:"Rua das Margaridas, 344"}
+    {empresa: "Marina e Filipe Doces & Salgados ME", data: "14/06/2019", hora:"10:00", status: "Confirmado", endereco:"Rua das Margaridas, 344"},
+    {empresa: "Clara Fotografias", data: "17/06/2019", hora: "14:00", status: "Confirmado", endereco: "Avenida Santos Dumont, 679"}
 ]
 export default class Cliente extends Component {
     // static navigationOptions = {
