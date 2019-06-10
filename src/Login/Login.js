@@ -13,7 +13,7 @@ class Login extends Component {
         header: null
     }
     state = {
-        email: 'facebook@contato.com',
+        email: 'renatomacedo500@gmail.com',
         password: '123456',
         isAuthenticated: false,
     }

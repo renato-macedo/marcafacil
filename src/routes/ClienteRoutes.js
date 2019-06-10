@@ -20,9 +20,9 @@ const BottomNavigator = createMaterialBottomTabNavigator({
     }}
 }, {
     initialRouteName: "Cliente",
-    activeColor: '#f0edf6',
-    inactiveColor: '#3e2465',
-    barStyle: {alignContent: "center"},
+    activetTintColor: 'white',
+    inactiveTintColor: '#ddd',
+    labeled: true,
 })
 
 export default BottomNavigator

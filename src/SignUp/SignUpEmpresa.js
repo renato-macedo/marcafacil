@@ -4,7 +4,6 @@ import FormEmpresa from './formEmpresa'
 
 const SignUpEmpresa = (props) =>  (
             <View style={styles.container}>
-                <Text style={styles.welcome}>Esta é a tela de Sign Up de Empresas</Text>
                 <FormEmpresa navigation={props.navigation}/>
             </View>
 )

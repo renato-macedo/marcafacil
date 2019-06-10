@@ -10,7 +10,6 @@ class SignUpCliente extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.welcome}>Esta é a tela de Sign Up de Clientes</Text>
           <FormCliente navigation={this.props.navigation} />
       </View>
   )

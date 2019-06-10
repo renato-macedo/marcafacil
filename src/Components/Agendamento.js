@@ -1,19 +1,30 @@
 import React, {Component} from 'react';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import {StyleSheet} from 'react-native'
+import { Avatar, Button, Card, Title, Paragraph, Text } from 'react-native-paper';
+import {StyleSheet, View} from 'react-native'
 
 class Agendamento extends Component { 
+    state = {
+        data: "26/06/2019",
+        hora: "13:00",
+        endereco: "Rua Lorem Ipsum, 26" 
+    }
     render(){
+        const {data, hora, endereco, empresa } = this.props.agendamento
         return(
             <Card style={styles.card}>
                 
                 <Card.Content>
-                <Title>Agendamento: Renato</Title>
-                <Title>Agendamento: Renato</Title>
-                <Paragraph>Dia: 06/06/2019</Paragraph>
-                <Paragraph>Hora: 13h</Paragraph>
+                <View style={styles.titlecontainer}>
+                    <Title style={styles.title}>{empresa}</Title>
+                    <Text style={styles.status}>Confirmado</Text>
+                </View>
+                
+
+                <Paragraph>Data: {data} </Paragraph>
+                <Paragraph>Hora: {hora}</Paragraph>
+                <Paragraph>Endereço: {endereco}</Paragraph>
                 </Card.Content>
-                <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+                {/* <Card.Cover source={{ uri: 'https://picsum.photos/700' }} /> */}
                 <Card.Actions style={styles.actions}>
                 <Button style={styles.detalhes}>Detalhes</Button>
                 </Card.Actions>
@@ -26,15 +37,30 @@ export default Agendamento;
 const styles = StyleSheet.create({
     card: {
         flex: 1,
-        marginTop: "5%",
+        marginTop: "2%",
+        marginBottom: "2%",
         width: "95%",
-        alignSelf: "center"
+        alignSelf: "center",
+        borderWidth: 2,
+        borderColor: "#13315C"
     },
     actions: {
-        justifyContent: "center",
-        flexDirection: "row"
+        justifyContent: "flex-end",
     },
-    detalhes: {
-        alignSelf: "flex-end"
-    }
+    titlecontainer: {
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    title: {
+        // alignItems: "stretch",
+        width:"70%"
+    },
+    status: {
+        color: "white",
+        backgroundColor: "green",
+        alignSelf: "center",
+        padding: 5,
+        borderRadius: 10
+    },
+
 })
