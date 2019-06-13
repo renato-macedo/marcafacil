@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Avatar, Button, Card, Title, Paragraph, Text } from 'react-native-paper';
+import { Button, Card, Title, Paragraph, Text } from 'react-native-paper';
 import {StyleSheet, View} from 'react-native'
 
 class Agendamento extends Component { 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Button, Text} from "react-native-paper";
-import {View } from 'react-native'
+import { Button} from "react-native-paper";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import { yyyymmdd } from "../Auxiliar/yyyymmdd";
 

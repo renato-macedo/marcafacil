@@ -57,6 +57,11 @@ export default class formEmpresa extends Component {
                   value={values.telefone}
                   label="Telefone"
                 />
+                <TextInput
+                  onChangeText={handleChange('endereco')}
+                  value={values.endereco}
+                  label="Endereco"
+                />
                 <Button onPress={handleSubmit} style={styles.button}>Submit</Button>
                 </View>
               )}

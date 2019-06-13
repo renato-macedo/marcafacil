@@ -59,6 +59,12 @@
 		E5F99C1253574C1880365B14 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 082CCA1CBBD34F31B1CC4607 /* libRNGestureHandler.a */; };
 		44DB0731CAE847238F8C39C9 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27242B3F37DA46A9BEEF725D /* libRNGestureHandler-tvOS.a */; };
 		4D790E58EA8C4EF4B16B74AF /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2182CFAB36A44969B8832AC /* libRNFirebase.a */; };
+		5D4B0B7CF1A449F2B12EA5C6 /* Kalam-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE636C18977E4559AD542676 /* Kalam-Bold.ttf */; };
+		A446F007C53E4D978F11E931 /* Kalam-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8ADC45A55F247369D31783B /* Kalam-Light.ttf */; };
+		FA2002A97A8446E2AB5FAA53 /* Kalam-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 258FCB61F7F74CEC972344C6 /* Kalam-Regular.ttf */; };
+		310D6316DBE14C3690B0B1A7 /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B7CB91331C4342BD391464 /* Lobster-Regular.ttf */; };
+		C4637CCEFCE4499C90E8D414 /* LuckiestGuy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEDA77BDB713424B97003DDE /* LuckiestGuy-Regular.ttf */; };
+		BFC3CE8A9B5F40AAA24A874C /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B7BA6CDAAC348038D1BEEF8 /* PermanentMarker-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +395,12 @@
 		27242B3F37DA46A9BEEF725D /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		87F10545FC334B709F272D44 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; name = "RNFirebase.xcodeproj"; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		D2182CFAB36A44969B8832AC /* libRNFirebase.a */ = {isa = PBXFileReference; name = "libRNFirebase.a"; path = "libRNFirebase.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		AE636C18977E4559AD542676 /* Kalam-Bold.ttf */ = {isa = PBXFileReference; name = "Kalam-Bold.ttf"; path = "../assets/fonts/Kalam-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F8ADC45A55F247369D31783B /* Kalam-Light.ttf */ = {isa = PBXFileReference; name = "Kalam-Light.ttf"; path = "../assets/fonts/Kalam-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		258FCB61F7F74CEC972344C6 /* Kalam-Regular.ttf */ = {isa = PBXFileReference; name = "Kalam-Regular.ttf"; path = "../assets/fonts/Kalam-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		60B7CB91331C4342BD391464 /* Lobster-Regular.ttf */ = {isa = PBXFileReference; name = "Lobster-Regular.ttf"; path = "../assets/fonts/Lobster-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BEDA77BDB713424B97003DDE /* LuckiestGuy-Regular.ttf */ = {isa = PBXFileReference; name = "LuckiestGuy-Regular.ttf"; path = "../assets/fonts/LuckiestGuy-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2B7BA6CDAAC348038D1BEEF8 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; name = "PermanentMarker-Regular.ttf"; path = "../assets/fonts/PermanentMarker-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +692,12 @@
 				6DC3DA7951D6405AAD13ADFD /* Octicons.ttf */,
 				4A58AD1E448F4D58ABBD24D9 /* SimpleLineIcons.ttf */,
 				D6330556DB4D40A1B5E6ED8B /* Zocial.ttf */,
+				AE636C18977E4559AD542676 /* Kalam-Bold.ttf */,
+				F8ADC45A55F247369D31783B /* Kalam-Light.ttf */,
+				258FCB61F7F74CEC972344C6 /* Kalam-Regular.ttf */,
+				60B7CB91331C4342BD391464 /* Lobster-Regular.ttf */,
+				BEDA77BDB713424B97003DDE /* LuckiestGuy-Regular.ttf */,
+				2B7BA6CDAAC348038D1BEEF8 /* PermanentMarker-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1146,6 +1164,12 @@
 				1C4A27FAA0BE43C89B979800 /* Octicons.ttf in Resources */,
 				3C96A4388A52435580212916 /* SimpleLineIcons.ttf in Resources */,
 				E8D7E582F6B84C10B2B5B5CD /* Zocial.ttf in Resources */,
+				5D4B0B7CF1A449F2B12EA5C6 /* Kalam-Bold.ttf in Resources */,
+				A446F007C53E4D978F11E931 /* Kalam-Light.ttf in Resources */,
+				FA2002A97A8446E2AB5FAA53 /* Kalam-Regular.ttf in Resources */,
+				310D6316DBE14C3690B0B1A7 /* Lobster-Regular.ttf in Resources */,
+				C4637CCEFCE4499C90E8D414 /* LuckiestGuy-Regular.ttf in Resources */,
+				BFC3CE8A9B5F40AAA24A874C /* PermanentMarker-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

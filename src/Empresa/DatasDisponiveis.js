@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 import {StyleSheet, View, FlatList, AsyncStorage} from 'react-native'
-import {Text, Appbar, FAB } from 'react-native-paper';
+import {Appbar, FAB } from 'react-native-paper';
 import DateTimePicker from "react-native-modal-datetime-picker";
 
 
@@ -47,7 +47,7 @@ class Agendamentos extends Component {
 
     //------FlatList----------
     renderItem = ({item}) => (
-        <DataRow key={item} navigation = {this.props.navigation} userId ={this.state.userId} data={item}/>
+        <DataRow key={item} rota="Horarios" navigation = {this.props.navigation} userId ={this.state.userId} data={item}/>
     )
 
 

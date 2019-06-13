@@ -13,8 +13,8 @@ class Login extends Component {
         header: null
     }
     state = {
-        email: 'renatomacedo500@gmail.com',
-        password: '123456',
+        email: '',
+        password: '',
         isAuthenticated: false,
     }
 
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         // alignSelf: "center",
         textAlign: "center",
         marginBottom: "5%",
-        fontFamily: "Impact" 
+        fontFamily: "LuckiestGuy-Regular" 
     },
 
     fields: {

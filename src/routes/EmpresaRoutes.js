@@ -2,10 +2,10 @@ import React from 'react'
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs"
 import EmpresaMain from '../Empresa/EmpresaMain'
 // import Agendamentos from '../Empresa/DatasDisponiveis'
-import DatasNavigator from  './DataHorarios'
+import DatasHorarios from  './DataHorarios'
 
 const Empresa = () => <EmpresaMain/>
-const Ag = () => <DatasNavigator />
+const Ag = () => <DatasHorarios />
 
 
 const BottomNavigator = createMaterialBottomTabNavigator({

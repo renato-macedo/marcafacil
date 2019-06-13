@@ -17,7 +17,6 @@ export default class HorarioRow extends Component {
             <View style={styles.view}>
             <List.Item
                 title={this.props.horario}
-                description="Item description"
                 left={props => <List.Icon  icon="access-time" />}
                 />
             </View>

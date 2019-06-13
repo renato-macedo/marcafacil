@@ -1,12 +1,13 @@
 import React from 'react'
-import { Avatar, Button, Card, Title, Paragraph, Text } from 'react-native-paper';
+import { Button, Card, Title, Paragraph} from 'react-native-paper';
 import { StyleSheet, View } from 'react-native'
 
 
 const  EmpresaCard = (props) => { 
 
     const { firstName, endereco, telefone } = props.empresa
-    console.log(props.empresa)
+    console.log("empresaaa: ", props.empresaId)
+    
     return(
         <Card style={styles.card}>
             
@@ -21,7 +22,7 @@ const  EmpresaCard = (props) => {
             </Card.Content>
             {/* <Card.Cover source={{ uri: 'https://picsum.photos/700' }} /> */}
             <Card.Actions style={styles.actions}>
-            <Button icon="book" style={styles.detalhes} onPress={() => console.log(`Realizando agendamento com ${firstName}`)} >Agendar</Button>
+            <Button icon="book" style={styles.detalhes} onPress={()=>props.navigation.navigate("DatasDaEmpresa", {datas: props.datas, userId: props.empresaId, empresaNome: firstName, endereco: endereco})} >Agendar</Button>
             </Card.Actions>
         </Card>
     );

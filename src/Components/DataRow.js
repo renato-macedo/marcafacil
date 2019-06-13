@@ -14,10 +14,12 @@ export default class DataRow extends Component {
     }
     render() {
         return (
-        <TouchableOpacity style={styles.row} onPress={()=> this.props.navigation.navigate("Horarios",{data: this.props.data, userId: this.props.userId})}>
+        <TouchableOpacity style={styles.row} onPress={()=> this.props.navigation.navigate(
+            this.props.rota ,{data: this.props.data, userId: this.props.userId, endereco: this.props.endereco, empresaNome: this.props.empresaNome}
+            )}>
             <List.Item
                 title={this.props.data}
-                description="Item description"
+
                 left={props => <List.Icon  icon="insert-invitation" />}
                 />
           </TouchableOpacity>

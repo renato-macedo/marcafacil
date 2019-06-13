@@ -48,3 +48,22 @@ async function buscarTipoDoUsuario(userId) {
     console.log(tipo)
     return tipo
 }
+
+export async function obterNomeDoUsuario(docId) {
+    let nome
+    const docCliente = await db.collection("clientes").doc(docId).get()
+    if(docCliente.exists) {
+        console.log("Document Cliente :", docCliente.data())
+        nome = docCliente.data().firstName + " " +docCliente.data().lastName
+    } else {
+        const docEmpresa = await db.collection("empresas").doc(docId).get()
+        if(docEmpresa.exists) {
+            console.log("Document Empresa:", docEmpresa.id)
+            nome  = docEmpresa.data().firstName
+        }else {
+            console.log("No such document!")
+        }
+    }
+
+    return nome
+}

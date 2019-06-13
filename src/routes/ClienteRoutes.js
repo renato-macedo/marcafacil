@@ -2,8 +2,8 @@ import { createMaterialBottomTabNavigator } from "react-navigation-material-bott
 import React from 'react'
 
 import Cliente from '../Cliente/ClienteMain'
-import Agendar from '../Cliente/Agendar'
-
+//import Agendar from '../Cliente/Buscar'
+import Agendar from './AgendarComEmpresa'
 
 
 

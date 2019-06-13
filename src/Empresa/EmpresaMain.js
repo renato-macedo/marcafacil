@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, AsyncStorage, FlatList} from 'react-native';
-import {Text, Appbar } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 import Agendamento from '../Components/Agendamento'
 
 const agendamentos = [
