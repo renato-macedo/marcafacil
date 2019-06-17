@@ -13,8 +13,8 @@ class Login extends Component {
         header: null
     }
     state = {
-        email: '',
-        password: '',
+        email: 'facebook@contato.com',
+        password: '123456',
         isAuthenticated: false,
     }
 
@@ -56,7 +56,8 @@ class Login extends Component {
             </View>
             <View style={{marginBottom: "5%"}} >
                 <Text style={styles.titulo}>Marca Fácil</Text>
-                <TextInput 
+                <TextInput
+                    autoCapitalize="none"
                     style={styles.fields}
                     keyboardType="email-address"
                     placeholder="Digite seu email"

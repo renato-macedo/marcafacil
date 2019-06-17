@@ -4,18 +4,18 @@ import {StyleSheet, View} from 'react-native'
 
 class Agendamento extends Component { 
     state = {
-        data: "26/06/2019",
-        hora: "13:00",
-        endereco: "Rua Lorem Ipsum, 26" 
+        data: "",
+        hora: "",
+        endereco: "",
     }
     render(){
-        const {data, hora, endereco, empresa } = this.props.agendamento
+        const {data, hora, endereco} = this.props.agendamento
         return(
             <Card style={styles.card}>
                 
                 <Card.Content>
                 <View style={styles.titlecontainer}>
-                    <Title style={styles.title}>{empresa}</Title>
+                    <Title style={styles.title}>{this.props.agendadoCom}</Title>
                     <Text style={styles.status}>Confirmado</Text>
                 </View>
                 
